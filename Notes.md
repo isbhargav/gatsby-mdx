@@ -17,7 +17,7 @@ This is the most common workflow that every devlopers use
 Example of fetching site meta data using graphql
 
 ```js
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby";
 
 const useSiteMetaData = () => {
   const data = useStaticQuery(graphql`
@@ -30,14 +30,15 @@ const useSiteMetaData = () => {
         }
       }
     }
-  `)
-  return data.site.siteMetadata
-}
+  `);
+  return data.site.siteMetadata;
+};
 ```
 
 # MDX
 
 MDX dosent actually stands for anything. MDX allows you to use react components inside markdown documents
+[Link to Gatsby Docs](https://www.gatsbyjs.com/plugins/gatsby-plugin-mdx/)
 
 Dependencies
 
@@ -59,3 +60,19 @@ gatsby-config
 ```
 
 NOTE: if you get sharp module error run the following command `rm -rf node_modules/sharp && yarn install --check-files`
+
+## Reading files form file system
+
+Dependicies
+
+- `gatsby-source-filesystem` : use local files as part of graphql data layer
+
+```js
+{
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/src/posts`,
+      },
+}
+```
